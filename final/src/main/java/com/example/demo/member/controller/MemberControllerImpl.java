@@ -52,7 +52,7 @@ public class MemberControllerImpl implements MemberController{
 		// TODO Auto-generated method stub
 		MemberDTO dto = service.findById(id);
 		model.addAttribute("member", dto);
-		return "/member/detailMember";
+		return "member/detailMember";
 	}
 
 	@Override
