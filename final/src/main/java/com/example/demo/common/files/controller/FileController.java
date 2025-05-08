@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -18,8 +19,8 @@ import org.springframework.web.util.UriUtils;
 
 @RestController
 public class FileController {
-	public static final String FILE_REPO = 
-			"/home/ubuntu/app/final/build/libs/file_repo";
+	@Value("${file.upload-dir}")
+	public static final String FILE_REPO = "/home/ubuntu/app/final/build/libs/file_repo"; 
 	
 	@GetMapping("/files/{articleNo}/{fileName}")
 	public ResponseEntity<Resource> downloadFile(
